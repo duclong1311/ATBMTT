@@ -103,10 +103,18 @@ function giaima($s,$k) {
             <?php 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['encode'])) {
-                        $s1 = $_POST['input'];
-                        $k = $_POST['k'];
-                        $s2 = mahoa($s1, $k);
-                        //$result_mahoa = hienthi($s2, $l);                                      
+                        if (empty($_POST['input'])) {
+                            $s2 = 'Bạn chưa nhập xâu';
+                        }
+                        else if (empty($_POST['k'])) {
+                            $s2 = 'Bạn chưa nhập k';
+                        }                   
+                        else {
+                            $s1 = $_POST['input'];
+                            $k = $_POST['k'];
+                            $s2 = mahoa($s1, $k);
+                            //$result_mahoa = hienthi($s2, $l); 
+                        }                         
                     }
                     else {
                         $s1 = '';
@@ -122,10 +130,18 @@ function giaima($s,$k) {
             <?php 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['decode'])) {
-                        $s2 = $_POST['input'];
-                        $k = $_POST['k'];
-                        $s3 = giaima($s2, $k);
-                        //$result_giaima = hienthi($s3 ,$l);
+                        if (empty($_POST['input'])) {
+                            $s3 = 'Bạn chưa nhập xâu';
+                        }
+                        else if (empty($_POST['k'])) {
+                            $s3 = 'Bạn chưa nhập k';
+                        }
+                        else {
+                            $s2 = $_POST['input'];
+                            $k = $_POST['k'];
+                            $s3 = giaima($s2, $k);
+                            //$result_giaima = hienthi($s3 ,$l);
+                        }                          
                     }
                     else {
                         $s2 = '';
